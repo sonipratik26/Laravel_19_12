@@ -90,9 +90,11 @@
             @endif
 
             <div class="content">
+                <input type="hidden" id="user_id" value="{{ Auth::user()->id }}">
                 <table id="table_id" class="display">
                     <thead>
-                        <tr >
+                        <tr>
+                            <th>Hotel Id</th>
                             <th>Hotel Name</th>
                             <th>Hotel Address</th>
                             <th>Hotel Contact</th>
@@ -101,6 +103,7 @@
                     <tbody>
                         @foreach($hotellist as $hotel)
                             <tr>
+                                <td>{{ $hotel->hotel_id }}</td>
                                 <td>{{ $hotel->hotel_name }}</td>
                                 <td>{{ $hotel->hotel_address }}</td>
                                 <td>{{ $hotel->hotel_phone_number }}</td>
@@ -114,11 +117,14 @@
 </html>
 <script type="text/javascript">
     $(document).ready( function () {
+         var user_id = $('#user_id').val();
+         //alert(user_id);
          var table = $('#table_id').DataTable();
 
          $('#table_id tbody').on('click', 'tr', function () {
             var data = table.row( this ).data();
             alert( 'You clicked on '+data[0]+'\'s row' );
+            //window.location = "{{ url('/') }}";
         });
     });
     
