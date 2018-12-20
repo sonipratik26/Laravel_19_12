@@ -9,7 +9,11 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="bower_components/datatables.net-dt/css/jquery.dataTables.css" rel="stylesheet" type="text/css">
+        <link href="bower_components/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+        
         <script src="bower_components/datatables.net/js/jquery.dataTables.js"></script>
+        <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 
         <!-- Styles -->
         <style>
