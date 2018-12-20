@@ -21,8 +21,8 @@
         <style>
             html, body {
                 background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
+                /*color: #636b6f;
+                font-family: 'Raleway', sans-serif;*/
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
@@ -33,7 +33,7 @@
             }
 
             .flex-center {
-                align-items: center;
+                
                 display: flex;
                 justify-content: center;
             }
@@ -50,6 +50,8 @@
 
             .content {
                 text-align: center;
+                width: 96%;
+                margin-top: 4%;
             }
 
             .title {
@@ -76,7 +78,10 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
+                        <!-- <a href="{{ url('/home') }}">Home</a> -->
+                        @if(Auth::user()->email == 'admin@gmail.com')
+                            <a href="{{ url('/home') }}">Add Hotel</a>
+                        @endif    
                     @else
                         <a href="{{ url('/login') }}">Login</a>
                         <a href="{{ url('/register') }}">Register</a>
@@ -87,28 +92,35 @@
             <div class="content">
                 <table id="table_id" class="display">
                     <thead>
-                        <tr>
-                            <th>Column 1</th>
-                            <th>Column 2</th>
+                        <tr >
+                            <th>Hotel Name</th>
+                            <th>Hotel Address</th>
+                            <th>Hotel Contact</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Row 1 Data 1</td>
-                            <td>Row 1 Data 2</td>
-                        </tr>
-                        <tr>
-                            <td>Row 2 Data 1</td>
-                            <td>Row 2 Data 2</td>
-                        </tr>
+                        @foreach($hotellist as $hotel)
+                            <tr>
+                                <td>{{ $hotel->hotel_name }}</td>
+                                <td>{{ $hotel->hotel_address }}</td>
+                                <td>{{ $hotel->hotel_phone_number }}</td>
+                            </tr>
+                        @endforeach
                     </tbody>
-                </table
+                </table>
             </div>
         </div>
     </body>
 </html>
 <script type="text/javascript">
     $(document).ready( function () {
-        $('#table_id').DataTable();
-    } );
+         var table = $('#table_id').DataTable();
+
+         $('#table_id tbody').on('click', 'tr', function () {
+            var data = table.row( this ).data();
+            alert( 'You clicked on '+data[0]+'\'s row' );
+        });
+    });
+    
+
 </script>

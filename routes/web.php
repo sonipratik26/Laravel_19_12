@@ -12,9 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/addhotel', 'HotelController@addhotel')->name('addhotel');
+Route::get('/', 'HotelController@hotellist')->name('hotellist');
+Route::get('/hotellist', 'HotelController@gethotellist')->name('gethotellist');
+Route::post('/addcomment', 'CommentController@addcomment')->name('addcomment');

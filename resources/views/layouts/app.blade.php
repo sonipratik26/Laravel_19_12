@@ -12,6 +12,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="bower_components/datatables.net-dt/css/jquery.dataTables.css" rel="stylesheet" type="text/css">
+        <link href="bower_components/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+        
+        
 </head>
 <body>
     <div id="app">
@@ -76,5 +81,14 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/datatables.net/js/jquery.dataTables.js"></script>
+        <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function () {
+            $('#table_id').DataTable();
+        } );
+    </script>
 </body>
 </html>
