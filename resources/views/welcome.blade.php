@@ -9,6 +9,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <script src="bower_components/datatables.net/js/jquery.dataTables.js"></script>
 
         <!-- Styles -->
         <style>
@@ -100,3 +101,8 @@
         </div>
     </body>
 </html>
+<script type="text/javascript">
+    $(document).ready( function () {
+        $('#table_id').DataTable();
+    } );
+</script>
